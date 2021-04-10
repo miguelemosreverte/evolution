@@ -1,5 +1,7 @@
 package evolution.cards
 
+import evolution.cards.Standard52CardDecks.Standard52CardDeck
+
 object Standard52CardDecks {
 
   /*
@@ -45,7 +47,9 @@ object Standard52CardDecks {
   are added to commercial decks, as some card games require these extra cards.
    */
 
-  case class Two(suit: Suit) extends Standard52CardDeck { val rank = Rank(2) } // (weakest)
+  case class Two(suit: Suit) extends Standard52CardDeck {
+    val rank = Rank(2)
+  } // (weakest)
   case class Three(suit: Suit) extends Standard52CardDeck { val rank = Rank(3) }
   case class Four(suit: Suit) extends Standard52CardDeck { val rank = Rank(4) }
   case class Five(suit: Suit) extends Standard52CardDeck { val rank = Rank(5) }
@@ -55,10 +59,39 @@ object Standard52CardDecks {
   case class Nine(suit: Suit) extends Standard52CardDeck { val rank = Rank(9) }
   case class Ten(suit: Suit) extends Standard52CardDeck { val rank = Rank(10) }
   case class Jack(suit: Suit) extends Standard52CardDeck { val rank = Rank(11) }
-  case class Queen(suit: Suit) extends Standard52CardDeck {    val rank = Rank(12)  }
+  case class Queen(suit: Suit) extends Standard52CardDeck {
+    val rank = Rank(12)
+  }
   case class King(suit: Suit) extends Standard52CardDeck { val rank = Rank(13) }
-  case class Ace(suit: Suit) extends Standard52CardDeck { val rank = Rank(14) } // strongest
-  
-  
+  case class Ace(suit: Suit) extends Standard52CardDeck {
+    val rank = Rank(14)
+  } // strongest
+
+  import scala.collection.mutable.Stack
+  import scala.util.Random
+  val fullDeck: Seq[Standard52CardDeck] =
+      Seq(
+        Clubs,
+        Diamonds,
+        Hearts,
+        Spades
+      ).flatMap(suit =>
+        Seq(
+          Two.apply,
+          Three.apply,
+          Four.apply,
+          Five.apply,
+          Six.apply,
+          Seven.apply,
+          Eight.apply,
+          Nine.apply,
+          Ten.apply,
+          Jack.apply,
+          Queen.apply,
+          King.apply,
+          Ace.apply
+        ).map(_(suit))
+      )
+    
 
 }

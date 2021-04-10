@@ -17,7 +17,7 @@ class RulesSpec {
     Seq(playerWithAnAceOfHearts, playerwithASixOfHearts)
   )
 
-  game.playRound(
+  game.`arbiter the round`(
     Round(
       Seq(
         PlayedCards.ofPlayerWithAce,
@@ -40,7 +40,7 @@ class RulesSpec {
 
   @Test def playerWithAceShouldWin(): Unit = {
     val winningPlayerShouldBe = playerWithAnAceOfHearts.id
-    val winningPlayerIs = game.roundResult
+    val winningPlayerIs = game.`how are we doing?`
       .maxBy(a => a.points.points)
       .id
     assertEquals(

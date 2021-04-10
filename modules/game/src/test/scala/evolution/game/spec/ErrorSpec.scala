@@ -15,7 +15,7 @@ class ErrorSpec {
 
   implicit val arbiter: Rules = echoArbiter
 
-  val game = new Game(
+  var game = new Game(
     Seq(playerWithAnAceOfHearts, playerwithASixOfHearts)
   )
 
@@ -31,7 +31,7 @@ class ErrorSpec {
           )
       }
 
-      game.playRound(
+      game.`arbiter the round`(
         Round(
           Seq(
             PlayedCards.playerWithAcePlaysASixOfHearhts
@@ -67,6 +67,21 @@ class ErrorSpec {
         evolution.game.algebra.error.PointsAreNegative(
           -1
         )
+      ),
+      error
+    )
+  }
+
+  @Test def NoMoreCardsToGiveSpec(): Unit = {
+    val error = Try {
+      (1 to Standard52CardDecks.fullDeck.size + 5) foreach { _ =>
+        game = game.`give one card to each player`
+      }
+    }
+
+    assertEquals(
+      Failure(
+        evolution.game.algebra.error.NoMoreCardsToGive
       ),
       error
     )
