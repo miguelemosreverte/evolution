@@ -27,13 +27,13 @@ object Standard52CardDecks {
   sealed trait Suit
   sealed trait FrenchSuit extends Suit
   //  clubs (♣)
-  sealed trait Clubs extends FrenchSuit
+  case object Clubs extends FrenchSuit
   //  diamonds (♦)
-  sealed trait Diamonds extends FrenchSuit
+  case object Diamonds extends FrenchSuit
   //  hearts (♥)
-  sealed trait Hearts extends FrenchSuit
+  case object Hearts extends FrenchSuit
   //  spades (♠)
-  sealed trait Spades extends FrenchSuit
+  case object Spades extends FrenchSuit
 
   /*
   Each suit includes an Ace, a King, Queen and Jack,
