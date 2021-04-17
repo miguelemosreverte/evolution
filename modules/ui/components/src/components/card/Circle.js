@@ -28,7 +28,7 @@ const Circle = styled.div`
   ${({radius}) => {
     return css`
         position: relative;
-        width:  ${radius}wh;
+        width:  ${radius}vh;
         height: ${radius}vh;
         padding: 0;
         border-radius: 50%; 

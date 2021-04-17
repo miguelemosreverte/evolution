@@ -60,7 +60,7 @@ const DIV = styled.div`
     const r = (index / total)
     return css`
 
-    transform:  translateX(${r * translateXFactor - translateXConst}vh) translateY(${(r * r * translateYFactor  -  r * translateYFactor  + translateYConst) * (invertY? -1 : 1)}vh)  rotateY(${r * xFactor - xConst}deg) rotateX(${r * yFactor - yConst}deg) rotateZ(${r * zFactor - zConst}deg) !important;
+    transform:  translateX(${r * translateXFactor - translateXConst}vw) translateY(${(r * r * translateYFactor  -  r * translateYFactor  + translateYConst) * (invertY? -1 : 1)}vh)  rotateY(${r * xFactor - xConst}deg) rotateX(${r * yFactor - yConst}deg) rotateZ(${r * zFactor - zConst}deg) ;
     z-index: ${Math.round(r * translateZFactor - translateZConst)} !important;
   `
   }}

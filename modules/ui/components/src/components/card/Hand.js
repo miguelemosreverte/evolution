@@ -22,20 +22,21 @@ const renderDefaults = {
     },
     playerHand: {
         translateXConst: 1,
-        translateXFactor: -2,
-        translateYConst: 15,
-        translateYFactor: -2,
+        translateXFactor: 4,
+        translateYConst: -15,
+        translateYFactor: -20,
         translateZConst: 1,
         translateZFactor: 1,
-        invertY: true,
+        invertY: false,
         xConst: 40,
         xFactor: 80,
         yConst: -10,
-        yFactor: 14,
-        zConst: 20,
-        zFactor: 40
+        yFactor: 24,
+        zConst: -35,
+        zFactor: -40
     }    
 }
+
 
 export const defaults = {  
     cards: [
