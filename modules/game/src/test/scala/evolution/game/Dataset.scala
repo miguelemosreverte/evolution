@@ -4,8 +4,8 @@ import evolution.cards.Standard52CardDecks
 import evolution.game.algebra.{Player, Points}
 
 object Dataset {
-  val echoArbiter = new SortArbiter
-  val sortArbiter = new SortArbiter
+  val echoRules = new EchoRules
+  val sortRules = new SortRules
   
   val playerWithAnAceOfHearts = Player(
     "1",

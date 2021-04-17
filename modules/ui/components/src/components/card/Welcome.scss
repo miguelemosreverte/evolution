@@ -1,0 +1,39 @@
+
+
+.Welcome {
+
+    padding: 9em;
+
+
+    background-color: red;
+
+    background-color: blue;
+    margin: 5px;
+    animation: slidein 0.25s forwards;
+  }
+
+
+.WelcomeDecoration {
+    position: absolute;
+    left: 37%;
+    top: 15%;
+
+    padding: 1em;
+
+    border: 4px dashed  azure;
+    margin: 15px;
+    animation: slidein 2s forwards;
+  }
+
+  @keyframes slidein {
+    from {
+      height: 0px;
+      transform: scale(0);
+      opacity: 0;
+    }
+    to {
+      height:var(--h);
+      transform: scale(1);
+      opacity: 1;
+    }
+  }

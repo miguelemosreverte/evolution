@@ -5,7 +5,7 @@ import evolution.game.Dataset._
 import evolution.game.algebra.protocol.command.PlayCard
 import evolution.game.algebra.protocol.event.PlayedCard
 import evolution.game.algebra.Rules.UnSettledGame
-import evolution.game.algebra.{Game, Player, Points, Round, Rules}
+import evolution.game.algebra._
 import org.junit.Assert._
 import org.junit.Test
 
@@ -13,11 +13,11 @@ import scala.util.{Failure, Try}
 
 class ErrorSpec {
 
-  implicit val arbiter: Rules = echoArbiter
+  implicit val rules: Rules = echoRules
 
-  var game = new Game(
+  var arbiter = Arbiter(new Game(
     Seq(playerWithAnAceOfHearts, playerwithASixOfHearts)
-  )
+  ))
 
   @Test def PlayerDoesNotPossessCardSpec(): Unit = {
     val error = Try {
@@ -31,7 +31,7 @@ class ErrorSpec {
           )
       }
 
-      game.`arbiter the round`(
+      arbiter.`arbiter the round`(
         Round(
           Seq(
             PlayedCards.playerWithAcePlaysASixOfHearhts
@@ -75,7 +75,7 @@ class ErrorSpec {
   @Test def NoMoreCardsToGiveSpec(): Unit = {
     val error = Try {
       (1 to Standard52CardDecks.fullDeck.size + 5) foreach { _ =>
-        game = game.`give one card to each player`
+        arbiter = arbiter.`give one card to each player`
       }
     }
 

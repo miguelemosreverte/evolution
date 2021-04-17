@@ -3,7 +3,7 @@ package evolution.game
 import evolution.game.algebra.{Points, Round, Rules}
 import evolution.game.algebra.Rules.{SettledGame, UnSettledGame}
 
-class SortArbiter extends Rules {
+class SortRules extends Rules {
   override def settle(game: UnSettledGame)(round: Round): SettledGame = {
     val sorted =
       round.playedCards.sortWith((a, b) =>
