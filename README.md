@@ -4,8 +4,14 @@
 
 This is a normal sbt project. You can compile code with `sbt compile`, run it with `sbt run`, and `sbt console` will start a Scala 3 REPL.
 
+### UI
 
-# Hexagon Architecture
-Domain, Bussiness, Infrastructure
+However, to access the UI of the project you can use:
 
-![alt text](https://raw.githubusercontent.com/miguelemosreverte/evolution/main/Hexagon.png?token=ACF2PCAD26FKYMRVDANRZ5LAOFORA)
+npm start 
+npm storybook 
+
+at modules/ui/components
+
+to start the UI or see the documentation, specifically.
+
