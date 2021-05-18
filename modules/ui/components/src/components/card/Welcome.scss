@@ -1,28 +1,77 @@
 
 
-.Welcome {
-
-    padding: 9em;
 
 
-    background-color: red;
+  
+  input[type="text"]{
+    background: transparent;
+    border: none;
+    outline: none;
+    color: transparent;
+    text-shadow: 0px 0px 3px azure;
+    text-align: left;
+    overflow: hidden;
 
-    background-color: blue;
-    margin: 5px;
-    animation: slidein 0.25s forwards;
+  }
+
+  .blurred  {
+    filter: blur(1px);
+  }
+
+  input[type="button"]{
+    background: transparent;
+    border: 2px dashed  azure;
+    outline: none;
+    text-align: left;
+    overflow: hidden;    
+  }
+
+  input[type="button"]:hover{
+    border-bottom: 3px dashed  azure;
   }
 
 
+
 .WelcomeDecoration {
-    position: absolute;
-    left: 37%;
-    top: 15%;
+  position: absolute;
+  left: 30%;
+  right: 30%;
+  top: 25%;
+  bottom: 25%;
 
-    padding: 1em;
+  padding: 1em;
 
-    border: 4px dashed  azure;
-    margin: 15px;
-    animation: slidein 2s forwards;
+  border: 4px dashed  azure;
+  z-index: 0;
+}
+
+@media only screen and (max-width: 600px) {
+
+  .WelcomeDecoration {
+    left: 10vw;
+    right: 10vw;
+    top: 25vh;
+    bottom: 25vh;
+  
+    padding: 2em;
+
+    transform: rotate(270deg);
+
+
+  }
+}
+
+  .blinking {
+    text-align: left;
+    animation: blinker 1s step-start infinite;
+    color: transparent;
+    text-shadow: 0px 0px 3px azure;
+  }
+  
+  @keyframes blinker {
+    50% {
+      opacity: 0;
+    }
   }
 
   @keyframes slidein {

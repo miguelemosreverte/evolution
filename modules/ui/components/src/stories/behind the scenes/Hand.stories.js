@@ -21,7 +21,7 @@ const defaults =  {
 
 const storyDecorator = (label, props) => 
 <div className="center">
-  <h1 className='slabo subtitle'>{label}</h1>
+  <h1 className='slabo subtitle withDecoration'>{label}</h1>
   {props}
 </div>
 

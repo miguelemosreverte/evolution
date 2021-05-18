@@ -20,8 +20,8 @@ export default class Board extends React.Component {
     render() {
      return (
     <div >             
-        <h1 className='slabo'>poker hand</h1>
-        <h2 className='slabo subtitle'>Made with css pseudo selectors</h2>
+        <h1 className='slabo withDecoration'>poker hand</h1>
+        <h2 className='slabo subtitle withDecoration'>Made with css pseudo selectors</h2>
         
 
 

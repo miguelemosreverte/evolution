@@ -31,7 +31,7 @@ const explanation = explanationBlock(`
 `)
 const storyDecorator = (label, props) => 
 <div className="center">
-  <h1 className='slabo subtitle'>{label}</h1>
+  <h1 className='slabo subtitle withDecoration'>{label}</h1>
   <div style={{display:"flex"}}> {explanation} </div> {props}
 </div>
 

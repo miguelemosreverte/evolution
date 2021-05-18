@@ -78,14 +78,14 @@ export default class Hand extends React.Component {
     //rotation = (i) => {transform([{ rotateX: '45deg' }, { rotateZ: '0.785398rad' }]);}
     render() {
         console.log(this.props)
-        console.log(this.props.isPlayerHand)
+        console.log(this.props.cardsPerPlayer)
      return (
      <div className="Card"> 
      
      
 
 
-<div className="wrap">
+     <div className={"wrap " +  " " +((this.props.isPlayerHand)? "isPlayerHand" : "")}>
     {
         (this.props.cards || defaults.cards).map((card, i) => 
         <Card 
@@ -94,7 +94,7 @@ export default class Hand extends React.Component {
         key={"Card-" + i}
         index={i} 
         index={i} user={i % this.props.cardsPerPlayer || 4} total={this.props.cardsPerPlayer || 4}
-        {... {...(this.props.isPlayerHand? renderDefaults.playerHand : renderDefaults.nonPlayerHand), ...{ totalCards: 4}, ...this.props}}
+        {... {...(this.props.isPlayerHand? renderDefaults.playerHand : renderDefaults.nonPlayerHand), ...this.props}}
         isPlayerHand={this.props.isPlayerHand}/>
         )
     }

@@ -13,7 +13,7 @@ var totalCards = 1
 var cardsPerPlayer = 1
 var stage = 0
 
-function refreshData()
+function refreshData(props)
 {
     if (totalCards < 50 && stage == 0) {
       totalCards += 4
@@ -67,15 +67,44 @@ const parabolicYParams = {
 
   }
 
-    render('#App', props =>{
+  var connection = new WebSocket('wss://echo.websocket.org/');
+
+  // When the connection is open, send some data to the server
+  connection.onopen = function () {
+    connection.send('Ping'); // Send the message 'Ping' to the server
+  };
+
+  // Log errors
+  connection.onerror = function (error) {
+    console.log('WebSocket Error ' + error);
+  };
+
+  // Log messages from the server
+  connection.onmessage = function (e) {
+    const props = {
+      availableGames:[1,2,3,4,5]
+    }
+    
+    //e.data
+    refreshData(props)
+    console.log('Server: ' + e.data);
+  };
+
+    render('#App', p =>{
       return <div>
         <Hand
-        className = "presentation"
 
-        {...{...{totalCards: 1, cardsPerPlayer: 1, translateXFactor: 1, translateXConst: 1, translateYFactor: 1, translateYConst: 1, invertY: true, translateZFactor: 1, translateZConst: 1, xFactor: 1, xConst: 1, yFactor: 1, yConst: 1, zFactor: 1, zConst: 1}, ... data}}
+        {... data}
+
+        interactive={true}
+        {...{cards: Array(data.cardsPerPlayer).fill({suit: "hearts", rank: "Two"})}} 
+
+        {...props}
         onClick = {e => {
-          /*render('#Welcome', props =>
-          <Welcome />)*/
+          render('#Welcome', p =>
+          <Welcome 
+          {...props}
+          />)
         }}
 
         ></Hand>

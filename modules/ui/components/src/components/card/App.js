@@ -111,7 +111,7 @@ export default class App extends React.Component {
 
             { this.state.presentationMode.rendering &&  <div >             
                 <h1 className='slabo'>poker hand</h1>
-                <h2 className='slabo subtitle'>Made with css pseudo selectors</h2>
+                <h2 className='slabo subtitle withDecoration'>Made with css pseudo selectors</h2>
             
 
                 <Hand {... this.state.presentationMode.data} />
@@ -121,7 +121,7 @@ export default class App extends React.Component {
 
             { !this.state.presentationMode.rendering &&  <div >             
                 <h1 className='slabo'>poker hand</h1>
-                <h2 className='slabo subtitle'>Made with css pseudo selectors</h2>
+                <h2 className='slabo subtitle withDecoration'>Made with css pseudo selectors</h2>
             
                 <h1> Well, hello there! </h1>
             </div>

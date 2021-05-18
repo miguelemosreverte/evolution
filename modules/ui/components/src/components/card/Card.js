@@ -84,12 +84,11 @@ export default class Card extends React.Component {
      const rank = ranks[this.props.rank || 11]
      const image = '../Standard52CardDeck/' + rank + suit + '.jpg'
      console.log(this.props)
-     console.log(this.props.isPlayerHand)
 
      return (
-        <div className={"" + this.props.presentation +  " " +((this.state.clicked % 2 == 0)? "onHand" : "onTable") +  " " +((this.props.isPlayerHand)? "isPlayerHand" : "")}>
+        <div className={" " +((this.state.clicked % 2 == 0)? "onHand" : "onTable") }>
                 <DIV {...this.props} >
-                  {this.props.isPlayerHand? 
+                  {(this.props.isPlayerHand || this.props.interactive)? 
                   <img className={"fit"} src={image} onClick={e => this.setState({clicked: this.state.clicked + 1})}/> :
                   <img className={"fit"} src={image}/>
                 }

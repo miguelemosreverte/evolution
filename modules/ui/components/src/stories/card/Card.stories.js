@@ -20,7 +20,7 @@ export default {
 
 const storyDecorator = (props) => 
 <div>
-  <h1 className='slabo subtitle'>poker card</h1>
+  <h1 className='slabo subtitle withDecoration'>poker card</h1>
   <div className=" center ">
   {props}
 </div>
